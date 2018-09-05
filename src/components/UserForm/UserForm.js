@@ -17,13 +17,20 @@ class UserForm extends Component {
         }
     }
     renderField(field) {
+        const errorClass = {
+            border: '1px solid #e43972'
+        }
         return (
             <div className="userform__field">
                 <label>{field.label}</label>
-                <input className="userform__field-input" type="text" {...field.input} />
-                {/* {console.log(field.meta.error)} */}
+                <input 
+                    style={field.meta.touched && field.meta.error ? errorClass : null}
+                    className="userform__field-input" 
+                    type="text" 
+                    {...field.input} 
+                />
                 { (field.meta.error && field.meta.touched) ? 
-                    <div>{field.meta.error}</div> : <div>&nbsp;</div> 
+                    <div className="userform__field_error">{field.meta.error}</div> : <div>&nbsp;</div> 
                 }
             </div>
         )
