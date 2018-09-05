@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+}
+
+.app-component {
+    background-color: lightgreen;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (min-width: 700px) {
+    .app-component {
+        width: 50%;
+    }
+}

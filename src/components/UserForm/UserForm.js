@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
 import { createUser } from '../../actions';
-import { connect } from 'react-redux';
+import './UserForm.scss';
 
 class UserForm extends Component {
     constructor(props) {
@@ -17,12 +18,12 @@ class UserForm extends Component {
     }
     renderField(field) {
         return (
-            <div>
+            <div className="userform__field">
                 <label>{field.label}</label>
-                <input type="text" {...field.input} />
+                <input className="userform__field-input" type="text" {...field.input} />
                 {/* {console.log(field.meta.error)} */}
                 { (field.meta.error && field.meta.touched) ? 
-                    <div>{field.meta.error}</div> : null 
+                    <div>{field.meta.error}</div> : <div>&nbsp;</div> 
                 }
             </div>
         )
@@ -46,13 +47,13 @@ function validate(values) {
         errors.username = "enter a username"
     }
     if (!values.email) {
-        errors.email = "enter a username"
+        errors.email = "enter an email"
     }
     if (!values.favMovie) {
-        errors.favMovie = "enter a username"
+        errors.favMovie = "enter your favorite movie"
     }
     if (!values.favBook) {
-        errors.favBook = "enter a username"
+        errors.favBook = "enter your favorite book"
     }
     return errors
 }

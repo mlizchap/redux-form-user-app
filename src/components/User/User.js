@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './User.scss';
+
 export default (props) => {
     return (
         <div className="component-user">

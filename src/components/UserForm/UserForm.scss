@@ -1,0 +1,22 @@
+.userform {
+    background-color: lightcyan;
+    label {
+        background-color: lightcoral;
+        display: block;
+    }
+    &__field {
+        margin-top: 10px;
+    }
+    &__field-input {
+        width: 90%;
+        height: 30px;
+        outline: none;
+        font-size: 12pt;
+        border: none; /* <-- This thing here */
+        border: solid 1px #ccc;
+        border-radius: 5px;
+        padding-left: 10px;
+        font-family: inherit;
+        letter-spacing: .05em;
+    }
+}
