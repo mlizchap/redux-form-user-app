@@ -7,8 +7,9 @@ class UserList extends Component {
     render() {
         console.log("test")
         return (
-            <div>
-                {this.props.users.map(user=> {
+            <div className="component-userlist">
+                {(this.props.users) ? this.props.users.map(user=> {
+                    console.log(user.id)
                     return (
                         <User 
                             key={user.id} 
@@ -18,7 +19,7 @@ class UserList extends Component {
                             book={user.favBook}
                         />
                     )
-                })}
+                }) : <div /> }
             </div>
         );
     }
@@ -28,4 +29,4 @@ function mapStateToProps(state) {
     return { users: state.users } 
 }
 
-export default  connect(mapStateToProps)(UserList);
+export default connect(mapStateToProps)(UserList);
